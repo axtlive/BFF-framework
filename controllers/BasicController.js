@@ -1,6 +1,6 @@
 class Controller {
     log(){
-        console.log('this is controller')
+        console.log('this is basic controller')
     }
 }
 
