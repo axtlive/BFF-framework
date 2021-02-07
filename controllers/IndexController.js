@@ -5,10 +5,11 @@ class IndexController extends Controller {
     super();
   }
   async actionIndex(ctx) {
-    ctx.body = await ctx.render('index');
+    throw new Error("333");
+    ctx.body = await ctx.render("index");
   }
-  actionAbout(ctx){
-    ctx.body = 'about page'
+  actionAbout(ctx) {
+    ctx.body = "about page";
   }
 }
 
