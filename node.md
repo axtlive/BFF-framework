@@ -19,3 +19,5 @@ MVC的模式
 + nodemon 监控开发的 node.js 代码变化以重启服务
 + pm2 上线监控 进程守护
 + @koa/router (koa-router)
++ koa-swig (模板)
++ koa-static (静态资源)
