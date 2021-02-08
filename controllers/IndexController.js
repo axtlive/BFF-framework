@@ -5,8 +5,7 @@ class IndexController extends Controller {
     super();
   }
   async actionIndex(ctx) {
-    throw new Error("333");
-    ctx.body = await ctx.render("index");
+    ctx.body = await ctx.render("index",{message:'后端输出的数据'});
   }
   actionAbout(ctx) {
     ctx.body = "about page";

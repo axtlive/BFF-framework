@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development nodemon ./app.js"
+    "start": "cross-env NODE_ENV=development nodemon ./app.js",
+    "build": "babel ./assets/js/data.js -o ././assets/js/data_bundle.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,9 @@
     "log4js": "^6.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/plugin-transform-modules-systemjs": "^7.12.13",
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.7"
   }
