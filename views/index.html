@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="app">
-        [[message]]
+      <div>[[message]]</div>
       <input type="text" v-model="message" />
       This is message: {{ message }}
     </div>
@@ -22,12 +22,12 @@
       });
     </script>
     <script type="module">
-        // 现代浏览器已经支持ES6语法
-        import ('/js/data.js').then(item=>console.log(item.default))
+      // 现代浏览器已经支持ES6语法
+      import("/js/data.js").then((item) => console.log(item.default));
     </script>
-    <script >
-        console.log('不支持ES6模块化')
-        System.import('/js/data_bundle.js').then(res=>console.log(res))
+    <script>
+      console.log("不支持ES6模块化");
+      System.import("/js/data_bundle.js").then((res) => console.log(res));
     </script>
   </body>
 </html>

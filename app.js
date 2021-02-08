@@ -12,12 +12,26 @@ const {
   apiWhiteList,
 } = require("./config/config");
 const initController = require("./controllers");
-const logMiddleWare = require("./middleWares/logMiddleware");
+// const logMiddleWare = require("./middleWares/logMiddleware");
 const ErrorHandler = require("./middleWares/ErrorHandler");
+const log4js = require("log4js");
 
 const app = new koa();
+log4js.configure({
+  // 存放目录
+  appenders: { globalError: { type: "file", filename: "./logs/error.log" } },
+  // 日志分类
+  categories: { default: { appenders: ["globalError"], level: "error" } },
+});
+const logger = log4js.getLogger("globalError");
+logger.trace("Entering cheese testing");
+logger.debug("Got cheese.");
+logger.info("Cheese is Comté.");
+logger.warn("Cheese is quite smelly.");
+logger.error("Cheese is too ripe!");
+logger.fatal("Cheese was breeding ground for listeria.");
 
-ErrorHandler.error(app);
+ErrorHandler.error(app, logger);
 
 // 静态文件服务
 app.use(staticService(staticDir));
@@ -36,11 +50,12 @@ app.context.render = co.wrap(
     autoescape: true,
     ext: "html",
     cache,
-    varControls: ['[[', ']]']
-  }),
+    varControls: ["[[", "]]"],
+  })
 );
 
-
 app.listen(port, () =>
-  console.log(`Server is running at http://localhost:${port}`),
+  console.log(
+    `\nYour koa server is successfully started\nRunning at http://localhost:${port}\n`
+  )
 );
