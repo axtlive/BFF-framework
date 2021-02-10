@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development nodemon ./app.js",
+    "start": "cross-env NODE_ENV=development nodemon --exec 'babel-node ./app.js'",
     "build": "babel ./assets/js/data.js -o ././assets/js/data_bundle.js"
   },
   "keywords": [],
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@koa/router": "^10.0.0",
+    "axios": "^0.21.1",
     "co": "^4.6.0",
     "koa": "^2.13.1",
     "koa-static": "^5.0.0",
@@ -23,7 +24,9 @@
   "devDependencies": {
     "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
     "@babel/plugin-transform-modules-systemjs": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.7"
   }

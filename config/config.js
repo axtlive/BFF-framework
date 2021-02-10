@@ -1,9 +1,9 @@
-const path = require("path");
+import path from "path";
 
 let config = {
   viewDir: path.join(__dirname, "../views"),
   staticDir: path.join(__dirname, "../", "assets"),
-  apiWhiteList: ["/api"]
+  apiWhiteList: ["/api", "worker"],
 };
 
 if (process.env.NODE_ENV === "development") {
@@ -28,4 +28,4 @@ if (process.env.NODE_ENV === "production") {
   };
 }
 
-module.exports = config;
+export default config;
