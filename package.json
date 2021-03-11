@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development nodemon --exec 'babel-node ./app.js'",
-    "build": "babel ./assets/js/data.js -o ././assets/js/data_bundle.js"
+    "build": "babel ./assets/js/data.js -o ././assets/js/data_bundle.js",
+    "jscpd": "jscpd ./*",
+    "client:dev": "scripty",
+    "client:prod": "scripty",
+    "server:dev": "scripty",
+    "server:prod": "scripty",
+    "server:start": "scripty"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +33,7 @@
     "@babel/plugin-transform-modules-systemjs": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "cross-env": "^7.0.3",
+    "jscpd": "^3.3.25",
     "nodemon": "^2.0.7",
     "scripty": "^2.0.0"
   }

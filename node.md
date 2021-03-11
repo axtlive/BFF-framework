@@ -30,4 +30,5 @@ MVC的模式
 
 ## 工具推荐
 
-+ scripty
++ scripty 
++ jscpd 检查代码重复率
