@@ -1,5 +1,5 @@
-const log4Config = require("../config/logConfig");
-const log4js = require("log4js");
+import log4Config from "../config/logConfig";
+import log4js from "log4js";
 
 // 调用配置文件
 log4js.configure(log4Config);
@@ -67,4 +67,4 @@ const logMiddleWare = async (ctx, next) => {
   }
 };
 
-module.exports = logMiddleWare;
+export default logMiddleWare;

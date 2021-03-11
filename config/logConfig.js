@@ -27,30 +27,30 @@ const logConfig = {
     'console': {type: 'console'},
     // 请求日志
     'reqLogger': {
-      type: 'dateFile', // 日志类型
+      type: 'file', // 日志类型
       filename: reqLogPath, // 输出文件名
       pattern: 'yyyy-MM-dd-hh:mm:ss.log', // 后缀
       alwaysIncludePattern: true, // 上面两个参数是否合并
       encoding: 'utf-8', // 编码格式
-      maxLogSize: 1000, // 最大存储内容
+      maxLogSize: 10 * 1024 * 1024, // = 10Mb // 最大存储内容
     },
     // 响应日志
     'resLogger': {
-      type: 'dateFile',
+      type: 'file',
       filename: resLogPath,
       pattern: 'yyyy-MM-dd-hh:mm:ss.log',
       alwaysIncludePattern: true,
       encoding: 'utf-8',
-      maxLogSize: 1000,
+      maxLogSize: 10 * 1024 * 1024, // = 10Mb
     },
     // 错误日志
     'errLogger': {
-      type: 'dateFile',
+      type: 'file',
       filename: errLogPath,
       pattern: 'yyyy-MM-dd-hh:mm:ss.log',
       alwaysIncludePattern: true,
       encoding: 'utf-8',
-      maxLogSize: 1000,
+      maxLogSize: 10 * 1024 * 1024, // = 10Mb
     }
   },
   // 分类以及日志等级
@@ -75,5 +75,5 @@ const logConfig = {
 }
 
 
-module.exports = logConfig;
+export default logConfig;
 
