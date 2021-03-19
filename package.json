@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./assets/js/data.js -o ././assets/js/data_bundle.js",
+    "builds": "babel ./assets/js/data.js -o ././assets/js/data_bundle.js",
+    "build": "npm run client:prod & npm run server:prod",
+    "start": "pm2 start ./app.json",
     "jscpd": "jscpd ./*",
     "client:dev": "scripty",
     "client:prod": "scripty",
@@ -35,6 +37,9 @@
     "cross-env": "^7.0.3",
     "jscpd": "^3.3.25",
     "nodemon": "^2.0.7",
-    "scripty": "^2.0.0"
+    "scripty": "^2.0.0",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "yargs": "^16.2.0"
   }
 }

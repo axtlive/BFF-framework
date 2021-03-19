@@ -1,4 +1,4 @@
-import Controller from "./Controller";
+import Controller from "./BasicController";
 
 class IndexController extends Controller {
   constructor() {

@@ -1,4 +1,4 @@
-import Controller from "./Controller";
+import Controller from "./BasicController";
 import WorkerModel from "../models/WorkerModel";
 
 class WorkerController extends Controller {

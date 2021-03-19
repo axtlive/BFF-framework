@@ -3,6 +3,7 @@
 MVC的模式
 
 # 目录改造
+
 + assets 静态文件图片等
 + config 项目相关配置文件
 + controller 控制器
@@ -32,3 +33,13 @@ MVC的模式
 
 + scripty 
 + jscpd 检查代码重复率
+
+
+集群编译
+主服务器 其他编译服务器（多个）
+免密登录 SCP
+
+# webpack 多入口打包处理
+
++ 区分打包环境 （开发环境 | 生产环境）production development
++ 多入口的文件处理
