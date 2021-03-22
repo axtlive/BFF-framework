@@ -1,5 +1,5 @@
 import Controller from "./BasicController";
-import WorkerModel from '../models/WorkerModel'
+import BooksModel from '../models/BooksModel'
 
 class ApiController extends Controller {
   constructor() {
@@ -9,8 +9,8 @@ class ApiController extends Controller {
     ctx.body = []
   }
   async actionWorkerList(ctx) {
-    const workerModel = new WorkerModel();
-    const result = await workerModel.getWorker()
+    const booksModel = new BooksModel();
+    const result = await booksModel.getBooksList()
     ctx.body = result.data.data;
   }
 }

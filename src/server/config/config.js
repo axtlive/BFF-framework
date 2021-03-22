@@ -3,7 +3,7 @@ import path from "path";
 let config = {
   viewDir: path.join(__dirname, "../../", "web/views"),
   staticDir: path.join(__dirname, "../../", "web/assets"),
-  apiWhiteList: ["/api", "worker"],
+  apiWhiteList: ["/api", "/books"],
 };
 
 if (process.env.NODE_ENV === "development") {

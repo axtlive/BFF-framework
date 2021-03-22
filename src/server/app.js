@@ -19,8 +19,7 @@ app.use(staticService(staticDir));
 // 前后端路由一样的 重定向到 / 让js控制页面
 app.use(historyApiFallback({ index: "/", whiteList: apiWhiteList }));
 // 日志中间件
-app.use(logMiddleWare);
-
+// app.use(logMiddleWare());
 // 使用路由
 initController(app);
 

@@ -1,25 +1,14 @@
 const path = require('path');
 
-// 日志根目录
 const baseLogPath = path.resolve(__dirname, '../logs');
 
-// 请求日志
-const reqPath = '/request/';
-const reqFileName = 'request';
-const reqLogPath = baseLogPath + reqPath + reqFileName;
+const reqLogPath = baseLogPath + '/request/request';
+const resLogPath = baseLogPath + '/response/response';
+const errLogPath = baseLogPath + '/error/error';
 
-
-// 响应日志
-const resPath = '/response/';
-const resFileName = 'response';
-const resLogPath = baseLogPath + resPath + resFileName;
-
-
-// 错误日志
-const errPath = '/error/';
-const errFileName = 'error';
-const errLogPath = baseLogPath + errPath + errFileName;
-
+const pattern = 'MM-dd-hh:mm:ss.log';
+const alwaysIncludePattern = true;
+const maxLogSize = 10 * 1024 * 1024;
 
 const logConfig = {
   appenders: {
@@ -29,28 +18,28 @@ const logConfig = {
     'reqLogger': {
       type: 'file', // 日志类型
       filename: reqLogPath, // 输出文件名
-      pattern: 'yyyy-MM-dd-hh:mm:ss.log', // 后缀
-      alwaysIncludePattern: true, // 上面两个参数是否合并
+      pattern, // 后缀
+      alwaysIncludePattern, // 上面两个参数是否合并
       encoding: 'utf-8', // 编码格式
-      maxLogSize: 10 * 1024 * 1024, // = 10Mb // 最大存储内容
+      maxLogSize, // = 10Mb // 最大存储内容
     },
     // 响应日志
     'resLogger': {
       type: 'file',
       filename: resLogPath,
-      pattern: 'yyyy-MM-dd-hh:mm:ss.log',
-      alwaysIncludePattern: true,
+      pattern,
+      alwaysIncludePattern,
       encoding: 'utf-8',
-      maxLogSize: 10 * 1024 * 1024, // = 10Mb
+      maxLogSize,
     },
     // 错误日志
     'errLogger': {
       type: 'file',
       filename: errLogPath,
-      pattern: 'yyyy-MM-dd-hh:mm:ss.log',
-      alwaysIncludePattern: true,
+      pattern,
+      alwaysIncludePattern,
       encoding: 'utf-8',
-      maxLogSize: 10 * 1024 * 1024, // = 10Mb
+      maxLogSize,
     }
   },
   // 分类以及日志等级

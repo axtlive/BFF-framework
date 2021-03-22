@@ -50,21 +50,23 @@ class HandleLogger extends CommonHandle {
   }
 }
 
-const logMiddleWare = async (ctx, next) => {
-  const startTime = new Date();
-  let period;
-  try {
-    // 请求日志
-    HandleLogger.reqLogger(ctx);
-    await next();
-    period = new Date() - startTime;
-    // 响应日志
-    HandleLogger.resLogger(ctx, period);
-  } catch (err) {
-    period = new Date() - startTime;
-    // 错误日志
-    HandleLogger.errorLogger(ctx, err, period);
-  }
+const logMiddleWare = () => {
+  return async (ctx, next) => {
+    const startTime = new Date();
+    let period;
+    try {
+      // 请求日志
+      HandleLogger.reqLogger(ctx);
+      await next();
+      period = new Date() - startTime;
+      // 响应日志
+      HandleLogger.resLogger(ctx, period);
+    } catch (err) {
+      period = new Date() - startTime;
+      // 错误日志
+      HandleLogger.errorLogger(ctx, err, period);
+    }
+  };
 };
 
 export default logMiddleWare;
