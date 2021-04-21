@@ -8,27 +8,20 @@ class CommonHandle {
   // 格式化请求日志
   static formatReqLog(ctx, time) {
     const { method, originalUrl, query, body } = ctx;
-    let text = `\n------------Request start------------\n\nRequest method: ${method} \nRequest url: ${originalUrl} \n`;
+    let text = `\nRequest method: ${method} \nRequest url: ${originalUrl} \n`;
     if (method === "GET") {
       text += `Request data: ${JSON.stringify(query)} \n`;
     } else {
       text += `Request data: ${JSON.stringify(body)} \n`;
     }
-    text += `All ctx info: ${JSON.stringify(ctx)}`;
+    text += `Request ctx: ${JSON.stringify(ctx)}\n`;
     return text;
   }
   // 格式化相应日志
   static formatResLog(ctx, time) {
-    return `\n------------response start------------\n\nResponse result: ${JSON.stringify(
-      ctx.response.body
-    )} \nResponse all: ${JSON.stringify(ctx)} \nResponse time: ${time}ms \n`;
-  }
-  // 格式化错误日志
-  static formatErrorLog(ctx, error, time) {
-    return `\n------------error start------------\n${this.formatResLog(
-      ctx,
-      time
-    )}\nerror content: ${JSON.stringify(error)}\n`;
+    return `\nResponse result: ${JSON.stringify(
+      ctx.response.body,
+    )} \nResponse ctx: ${JSON.stringify(ctx)} \nResponse time: ${time}ms \n`;
   }
 }
 
@@ -46,7 +39,7 @@ class HandleLogger extends CommonHandle {
   }
   // 错误日志
   static errorLogger(ctx, error, time) {
-    log4js.getLogger("errLogger").info(this.formatErrorLog(ctx, error, time));
+    log4js.getLogger("errLogger").error(error);
   }
 }
 

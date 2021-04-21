@@ -7,11 +7,15 @@ class AxtliveRequest {
       message: "",
       data: null,
     };
+    const time = Number((Math.random() * 4).toFixed(0));
+    console.log(time);
     return new Promise((resolve, reject) => {
       axios(url)
         .then((res) => {
           result.data = res.data;
-          resolve(result);
+          setTimeout(() => {
+            resolve(result);
+          }, time * 1000);
         })
         .catch((err) => {
           result.message = err.message;
